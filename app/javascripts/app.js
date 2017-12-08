@@ -13,25 +13,30 @@ var k = JSON.stringify(employee_artifacts.abi);
 
 var l=JSON.parse(k)
 var employeeContract = web3.eth.contract(l);
-var employeeContractInstance = employeeContract.at("0xbac0684274016e6992b9b44de283c780cc63bdfd");
+var employeeContractInstance = employeeContract.at("0x37a1a9d0824f7d57d469803cbcbaa0b8a588534b");
 window.addNewEmployee = function(candidate) {
   var candidateName = $("#addCandidate").val();
   var employeeId ='e'+$("#employeeId").val();
-  var age = $("#employeeAge").val();
+  var age = $("#age").val();
   var fName = $("#employeeFirstName").val();
   var lName = $("#employeeLastName").val();
+  var experience = $("#employeeExperience").val();
+  var comments =$("#comments").val();
+  var role =$("#employeeRole").val();
+  console.log("saju",role,comments,experience,lName,fName,age,employeeId);
   Employee.setProvider(web3.currentProvider);
   try {
     $("#msg").html("Employee has been entered. The change will be reflected as soon it is recorded in the blockchain. Please wait.")
     $("#candidate").val("");
+    console.log("hey : ", employeeId);
       var isNew = employeeContractInstance.isNewEntry(employeeId);
       console.log("can i put the records : ", isNew);
         if(isNew){
           Employee.deployed().then(function(contractInstance) {
             console.log("bef:"+employeeId);
-          return contractInstance.inputEmployeeId(employeeId, {gas: 140000, from: web3.eth.accounts[0]})
+          return contractInstance.inputEmployeeId(employeeId, {gas: 4712388, from: web3.eth.accounts[0]})
           .then(function(){
-            return contractInstance.inputEmployeeData(employeeId, age, fName, lName, {gas: 140000, from: web3.eth.accounts[0]}).then(function() {
+            return contractInstance.inputEmployeeData(employeeId, age, fName, lName,role,experience,comments, {gas: 4712388, from: web3.eth.accounts[0]}).then(function() {
               var markup = "<tr><td>" + employeeId.slice(1) + "</td><td>"+ age + "</td><td>" + fName + "</td><td>" + lName + "</td><td></tr>"
               $("table tbody").append(markup);
             });

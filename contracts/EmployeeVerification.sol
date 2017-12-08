@@ -6,6 +6,9 @@ contract EmployeeVerification {
         uint age;
         string fName;
         string lName;
+        string role;
+        string experience;
+        string comments;
     }
 
     mapping (bytes32 => Employee) employeeData;
@@ -15,8 +18,8 @@ contract EmployeeVerification {
         return (employeeData[employeeID].age, employeeData[employeeID].fName, employeeData[employeeID].lName);
     }
 
-    function inputEmployeeData(bytes32 employeeID, uint age, string fName, string lName) public {
-        var newEmployee = Employee(age, fName ,lName);
+    function inputEmployeeData(bytes32 employeeID, uint age, string fName, string lName, string role, string experience, string comments) public {
+        var newEmployee = Employee(age, fName, lName, role, experience, comments);
         employeeData[employeeID] = (newEmployee);
     }
 
