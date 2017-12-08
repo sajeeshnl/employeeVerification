@@ -23,20 +23,16 @@ window.addNewEmployee = function(candidate) {
   var experience = $("#employeeExperience").val();
   var comments =$("#comments").val();
   var role =$("#employeeRole").val();
-  console.log("saju",role,comments,experience,lName,fName,age,employeeId);
   Employee.setProvider(web3.currentProvider);
   try {
     $("#msg").html("Employee has been entered. The change will be reflected as soon it is recorded in the blockchain. Please wait.")
     $("#candidate").val("");
-    console.log("hey : ", employeeId);
       var isNew = employeeContractInstance.isNewEntry(employeeId);
-      console.log("can i put the records : ", isNew);
         if(isNew){
           Employee.deployed().then(function(contractInstance) {
-            console.log("bef:"+employeeId);
           return contractInstance.inputEmployeeId(employeeId, {gas: 4712388, from: web3.eth.accounts[0]})
           .then(function(){
-            return contractInstance.inputEmployeeData(employeeId, age, fName, lName,role,experience,comments, {gas: 4712388, from: web3.eth.accounts[0]}).then(function() {
+            return contractInstance.inputEmployeeData(employeeId, age, fName, lName, role, experience, comments, {gas: 4712388, from: web3.eth.accounts[0]}).then(function() {
               var markup = "<tr><td>" + employeeId.slice(1) + "</td><td>"+ age + "</td><td>" + fName + "</td><td>" + lName + "</td><td></tr>"
               $("table tbody").append(markup);
             });
@@ -60,12 +56,10 @@ $( document ).ready(function() {
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8500"));
   }
   var employeeList = employeeContractInstance.getCandidateList();
-  console.log("saju:",employeeList);
   Employee.setProvider(web3.currentProvider);
   for (var i = 0; i < employeeList.length; i++) {
     let nameString = web3.toUtf8(employeeList[i]);
     getEmployeeDetails(nameString);
-    console.log("nameString:"+nameString);
   }
 
 
