@@ -1,59 +1,53 @@
 # employeeVerification
 Makes use of the block chain to hold the employee data securely and in a distributed manner.
 
+##Steps to get this project running :  
 
-Installation 
+#Prerequisites : 
 
+.  Install geth using the following coommmands
 
-
-1.  Install geth using following coommmands
-
-	sudo apt-get install software-properties-common
+	```sudo apt-get install software-properties-common
 	sudo add-apt-repository -y ppa:ethereum/ethereum
 	sudo apt-get update
-	sudo apt-get install ethereum
+	sudo apt-get install ethereum```
 
-2.  Install truffle using following command
+.  Install truffle using the following command
 
-	npm install -g truffle
+	```npm install -g truffle```
 
-3.  Copy the genisis file "CustomGenesis.json" to any folder. For example /home folder
+#To connect to the network : 
 
-4.  Create ethereum private network and init the genesis block using following command  
+.  Create ethereum private network and init the genesis block using following command  
 
-	geth --datadir "firstserver" init "CustomGenesis.json" 
+	```geth --datadir "employeeVerificationServer" init "Genesis File/CustomGenesis.json"```
 
-5.  Start the private network using following command
+.  Start the private network using the following command
 
-	geth --datadir firstserver --networkid 1234 --rpcport 8500 --rpcaddr 127.0.0.1 --port 30303 --rpc --			    
-	rpcapi="db,eth,net,web3,personal,web3"  --maxpeers 3 --nat=any --nodiscover --rpccorsdomain "*"  console
+	```geth --datadir employeeVerificationServer --networkid 1234 --rpcport 8500 --rpcaddr 127.0.0.1 --port 30303 --rpc --			    
+	rpcapi="db,eth,net,web3,personal,web3"  --maxpeers 3 --nat=any --nodiscover --rpccorsdomain "*"  console```
 
-6.  Above command will open a console. In that console
+#To get the node up and running : 
+
+.  The Above command initiated a geth console. In the console execute the following commands
    
-	i.   personal.newAccount()   will create new account
+	.  `personal.newAccount("password")`   = > this command will create new account
+	
+	. `personal.unlockAccount(eth.accounts[0], "password", 100000)` = > this command unlocks the account
 
-	ii.  miner.start()    account wiiil get enough gas to make transactions
+	.  `miner.start()`    = > this command starts the mining in the node
+	
 
-7.  Clone this repo to your local machine using https://github.com/sajeeshnl/employeeVerification.git
+.  In a seperate terninal under the same directory execute `run npm install`
 
-	cd  employeeVerification
 
-8.  run npm install
+. Open the *build/contracts/EmployeeVerification.json* file and copy the address provided. Enter the address in app.js
 
-9.  deploy the contracts to network
-
-	truffle migrate
-
-10. Copy the contract address and update it in app.js
-
-	var employeeContractInstance = employeeContract.at("replace with contract address"); in line no. 16
+	`var employeeContractInstance = employeeContract.at("replace with contract address");` in line no. 16
    
-11. enter npm run dev	
+. Execute `npm run dev`
 
-12. open http://localhost:8080/   
-
-
-	In this network, there is only one node. To create multiple nodes, use same genesis file and network id.
+. open http://localhost:8080/   
 
 	
  
