@@ -1,4 +1,4 @@
-# employeeVerification
+# Employee Verification
 Makes use of the block chain to hold the employee data securely and in a distributed manner.
 
 ## Steps to get this project running :  
@@ -7,10 +7,12 @@ Makes use of the block chain to hold the employee data securely and in a distrib
 
 1.  Install geth using the following commmands
 
-	```sudo apt-get install software-properties-common
+	```
+	sudo apt-get install software-properties-common
 	sudo add-apt-repository -y ppa:ethereum/ethereum
 	sudo apt-get update
-	sudo apt-get install ethereum```
+	sudo apt-get install ethereum
+	```
 
 2.  Install truffle using the following command
 
@@ -29,24 +31,24 @@ Makes use of the block chain to hold the employee data securely and in a distrib
 
 # To get the node up and running : 
 
-3.  The Above command initiated a geth console. In the console execute the following commands
+1. The Above command initiated a geth console. In the console execute the following commands
    
-1.  ```personal.newAccount("password")```   = > this command will create new account
+..  ```personal.newAccount("password")```   = > this command will create new account
 
-2. ```personal.unlockAccount(eth.accounts[0], "password", 100000)``` = > this command unlocks the account
+.. ```personal.unlockAccount(eth.accounts[0], "password", 100000)``` = > this command unlocks the account
 
-3.  ```miner.start()```    = > this command starts the mining in the node
+..  ```miner.start()```    = > this command starts the mining in the node
 	
-4.  In a seperate terninal under the same directory execute `npm install`
+2.  In a seperate terninal under the same directory execute `npm install`
 
 
-5. Open the *build/contracts/EmployeeVerification.json* file and copy the address provided. Enter the address in app.js
+3. Open the *build/contracts/EmployeeVerification.json* file and copy the address provided. Enter the address in app.js
 
-	```var employeeContractInstance = employeeContract.at("replace with contract address"); in line no. 16```
+	`var employeeContractInstance = employeeContract.at("replace with contract address"); in line no. 16`
    
-6. Execute `npm run dev`
+4. Execute `npm run dev`
 
-7. open http://localhost:8080/   
+5. open http://localhost:8080/   
 
 	
  
