@@ -1,6 +1,12 @@
 # Employee Verification
 Makes use of the block chain to hold the employee data securely and in a distributed manner.
 
+![Alt text](/app/assets/Dapp_image.png?raw=true "Optional Title")
+
+![Alt text](/app/assets/Dapp_image1.png?raw=true "Optional Title")
+
+![Alt text](/app/assets/Dapp_image2.png?raw=true "Optional Title")
+
 ## Steps to get this project running
 
 # Prerequisites
