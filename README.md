@@ -1,11 +1,14 @@
+
+This DApp alows you to join a network of firms sharing their employee data between themselves.
+We make use of blockchain to ensure that each transaction is recorded in the network.
+The data is stored in a secure and distributed manner.
+
 # Employee Verification
-Makes use of the block chain to hold the employee data securely and in a distributed manner.
-
-![Alt text](/app/assets/Dapp_image.png?raw=true "Optional Title")
-
-![Alt text](/app/assets/Dapp_image1.png?raw=true "Optional Title")
-
-![Alt text](/app/assets/Dapp_image2.png?raw=true "Optional Title")
+![Alt text](/app/assets/Dapp_image.png?raw=true "employee verification")
+You can add an employee to the network.
+![Alt text](/app/assets/Dapp_image1.png?raw=true "enter the data here")
+You can view all the existing employees within the network.
+![Alt text](/app/assets/Dapp_image2.png?raw=true "you can view the data here")
 
 ## Steps to get this project running
 
