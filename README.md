@@ -10,6 +10,7 @@ You can add an employee to the network.
 
 
 ![Alt text](/app/assets/Dapp_image1.png?raw=true "enter the data here")
+
 You can view all the existing employees within the network.
 
 
